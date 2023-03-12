@@ -4,6 +4,8 @@ const {
   createAudioResource,
   joinVoiceChannel,
 } = require("@discordjs/voice");
+require("dotenv").config();
+
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -22,7 +24,7 @@ module.exports = {
     const resource = createAudioResource(
       "https://jenny.torontocast.com:2000/stream/J1XTRA"
     );
-    const channel = await Dortrox.channels.fetch("961554441335631872");
+    const channel = await Dortrox.channels.fetch(process.env.ChannelID);
     const connection = joinVoiceChannel({
       channelId: channel.id,
       guildId: channel.guildId,

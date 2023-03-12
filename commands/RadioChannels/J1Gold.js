@@ -1,4 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
+require("dotenv").config();
 const {
   createAudioPlayer,
   createAudioResource,
@@ -22,7 +23,7 @@ module.exports = {
     const resource = createAudioResource(
       "https://jenny.torontocast.com:2000/stream/J1GOLD"
     );
-    const channel = await Dortrox.channels.fetch("961554441335631872");
+    const channel = await Dortrox.channels.fetch(process.env.ChannelID);
     const connection = joinVoiceChannel({
       channelId: channel.id,
       guildId: channel.guildId,
